@@ -87,21 +87,13 @@
             border-radius: 8px; /* Cantos arredondados na logo */
             box-shadow: 0 0 10px var(--primary-neon-glow);
             transition: var(--transition);
+            background-color: white; /* Fundo branco para destacar o logo caso seja muito escuro */
+            padding: 5px;
         }
         
         .logo-img:hover {
             box-shadow: 0 0 20px var(--primary-neon);
             transform: scale(1.05);
-        }
-
-        .logo-text {
-            font-family: var(--font-title);
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            text-shadow: 0 0 5px var(--primary-neon-glow);
         }
 
         .nav-menu {
@@ -285,6 +277,7 @@
 
         .product-img-wrapper {
             overflow: hidden;
+            background-color: #f5f5f5; /* Cor de fundo caso a imagem tenha transparência ou carregue devagar */
         }
 
         .product-info {
@@ -349,6 +342,11 @@
             height: auto;
             display: block;
             filter: grayscale(30%) contrast(120%);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(100%);
         }
 
         /* =========================================
@@ -404,10 +402,19 @@
             background-color: var(--primary-neon);
             color: #fff;
             border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            transition: var(--transition);
         }
 
         .btn-submit:hover {
             background-color: #8b10d9;
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
         }
 
         /* =========================================
@@ -531,7 +538,6 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <!-- Usando a nova imagem em PNG -->
                 <a href="#inicio">
                     <img src="image-removebg-preview.png" alt="Urban Style Logo" class="logo-img">
                 </a>
@@ -566,10 +572,10 @@
         <h2 class="section-title">Nossos Produtos</h2>
         <div class="products-grid">
             
-            <!-- Produto 1 -->
+            <!-- Produto 1: Conjunto casual curado -->
             <div class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="Conjunto casual curado.jpg" alt="Camiseta Oversized" class="product-image">
+                    <img src="Conjunto casual curado.jpg" alt="Conjunto Feminino Casual" class="product-image">
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Conjunto Feminino Casual</h3>
@@ -577,10 +583,10 @@
                 </div>
             </div>
 
-            <!-- Produto 2 -->
+            <!-- Produto 2: Camisetas -->
             <div class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="unnamed (1).jpg" alt="Moletom Hoodie" class="product-image">
+                    <img src="unnamed (1).jpg" alt="Conjunto Camisa Oversized" class="product-image">
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Conjunto Camisa Oversized</h3>
@@ -588,7 +594,7 @@
                 </div>
             </div>
 
-            <!-- Produto 3 -->
+            <!-- Produto 3: Calça Cargo -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="cargo-preta051-71214574dcfdea69ff16637757371287-1024-1024.webp" alt="Calça Cargo" class="product-image">
@@ -599,18 +605,18 @@
                 </div>
             </div>
 
-            <!-- Produto 4 -->
+            <!-- Produto 4: Sweater listrado -->
             <div class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="unnamed (2).jpg" alt="Camisa Blusa" class="product-image">
+                    <img src="unnamed (2).jpg" alt="Sweater inverno" class="product-image">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title"> Sweater "inverno"</h3>
+                    <h3 class="product-title">Sweater "inverno"</h3>
                     <p class="product-price">R$ 89,90</p>
                 </div>
             </div>
 
-            <!-- Produto 5 -->
+            <!-- Produto 5: Tênis verde -->
             <div class="product-card">
                 <div class="product-img-wrapper">
                     <img src="unnamed (4).jpg" alt="Tênis Street Walker" class="product-image">
@@ -621,10 +627,10 @@
                 </div>
             </div>
 
-            <!-- Produto 6 -->
+            <!-- Produto 6: Moletom roxo -->
             <div class="product-card">
                 <div class="product-img-wrapper">
-                    <img src="unnamed (3).jpg" alt="Jaqueta Corta-Vento" class="product-image">
+                    <img src="unnamed (3).jpg" alt="Moletom Roxo" class="product-image">
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">Moletom "Roxo"</h3>
@@ -644,6 +650,7 @@
                 <p>Nossas peças são desenhadas para aqueles que não têm medo de se expressar. Inspirados pela cultura Streetwear, pela música underground e pela arte de rua, trazemos o neon e o escuro em perfeita harmonia para o seu guarda-roupa.</p>
             </div>
             <div class="about-image">
+                <!-- Imagem do cara com look urbano -->
                 <img src="unnamed (5).jpg" alt="Cultura Urbana">
             </div>
         </div>
@@ -674,15 +681,12 @@
         <div class="footer-logo">Urban <span>Style</span></div>
         
         <div class="social-links">
-            <!-- Ícone Instagram -->
             <a href="#" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <!-- Ícone Twitter/X -->
             <a href="#" aria-label="Twitter">
                 <svg viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.38 4.482A13.942 13.942 0 011.671 3.149a4.916 4.916 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 19.54a13.94 13.94 0 007.548 2.212c9.057 0 14.01-7.503 14.01-14.01 0-.213-.005-.425-.014-.636A10.012 10.012 0 0024 4.557z"/></svg>
             </a>
-            <!-- Ícone TikTok (Genérico de video) -->
             <a href="#" aria-label="TikTok">
                 <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.37-2.01 1.68-4.8 2.37-7.29 1.78-2.88-.68-5.26-2.92-5.96-5.84-.52-2.17-.15-4.57 1.05-6.42 1.25-1.92 3.32-3.14 5.56-3.41 0 1.4.01 2.8.01 4.2-.68.17-1.35.48-1.87 1.01-.76.77-1.07 1.94-.8 3.01.27 1.04 1.14 1.83 2.19 2.11 1.03.26 2.18-.01 2.93-.72.63-.6.99-1.48 1.04-2.36.08-3.95.03-7.91.03-11.87zm-1.01 19.06c.01-.01.01-.01 0 0z"/></svg>
             </a>
